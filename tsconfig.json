@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		/* Base Options */
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "ES6",
+		"outDir": "dist",
+
+		/* Node Stuff */
+		"module": "NodeNext",
+
+		/* Strictness */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
+}

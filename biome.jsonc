@@ -20,5 +20,16 @@
 	},
 	"organizeImports": {
 		"enabled": true
-	}
+	},
+	"overrides": [
+		{
+			"include": ["tsconfig.*.json"],
+			"json": {
+				"parser": {
+					"allowComments": true,
+					"allowTrailingCommas": true
+				}
+			}
+		}
+	]
 }

@@ -1,7 +1,10 @@
 import useSWR from 'swr'
 import type { Users } from '../types/response.'
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+import { API_URL } from '../config/env'
+
+const fetcher = (url: string) =>
+	fetch(`${API_URL}${url}`).then((res) => res.json())
 
 function UsersPage() {
 	const { data, error, isLoading } = useSWR<Users>('/api/users', fetcher)

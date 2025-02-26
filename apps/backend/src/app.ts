@@ -5,7 +5,7 @@ import userRouter from './routes/users-routes.js'
 
 const app = express()
 
-// Middlewares
+// 🚀 CORS Middleware
 const allowedOrigins = CORS_ORIGIN.split(',')
 
 app.use(
@@ -18,9 +18,12 @@ app.use(
 			}
 		},
 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
+		allowedHeaders: ['Content-Type'],
+		credentials: true,
 	}),
 )
 
+// 🚀 JSON Middleware
 app.use(express.json())
 
 // Routes

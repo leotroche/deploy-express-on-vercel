@@ -6,19 +6,18 @@ import userRouter from './routes/users-routes.js'
 const app = express()
 
 // 🚀 CORS Middleware
-const allowedOrigins = CORS_ORIGIN.split(',')
+const allowedOrigins = ['http://localhost:5173']
+
+if (CORS_ORIGIN) {
+	allowedOrigins.push(CORS_ORIGIN)
+}
 
 app.use(
 	cors({
-		origin: (origin, callback) => {
-			if (!origin || allowedOrigins.includes(origin)) {
-				callback(null, true)
-			} else {
-				callback(new Error('Not allowed by CORS'))
-			}
-		},
-		methods: ['GET', 'POST', 'PUT', 'DELETE'],
-		allowedHeaders: ['Content-Type'],
+		origin: allowedOrigins,
+		methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+		allowedHeaders: ['Content-Type', 'Authorization'],
+		exposedHeaders: ['Authorization'],
 		credentials: true,
 	}),
 )

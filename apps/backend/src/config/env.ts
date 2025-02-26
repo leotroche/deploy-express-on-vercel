@@ -1,3 +1,3 @@
-const API_URL = process.env.API_URL ?? 'http://localhost:5173'
+const CORS_ORIGIN = process.env.CORS_ORIGIN ?? 'http://localhost:5173'
 
-export { API_URL }
+export { CORS_ORIGIN }

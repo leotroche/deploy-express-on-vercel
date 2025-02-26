@@ -1,5 +1,6 @@
 import cors from 'cors'
 import express from 'express'
+import { CORS_ORIGIN } from './config/env.js'
 import userRouter from './routes/users-routes.js'
 
 const app = express()
@@ -7,7 +8,7 @@ const app = express()
 // Middlewares
 app.use(
 	cors({
-		origin: process.env.API_URL,
+		origin: CORS_ORIGIN,
 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
 	}),
 )

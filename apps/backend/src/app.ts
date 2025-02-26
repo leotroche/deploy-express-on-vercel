@@ -6,12 +6,21 @@ import userRouter from './routes/users-routes.js'
 const app = express()
 
 // Middlewares
+const allowedOrigins = CORS_ORIGIN.split(',')
+
 app.use(
 	cors({
-		origin: CORS_ORIGIN,
+		origin: (origin, callback) => {
+			if (!origin || allowedOrigins.includes(origin)) {
+				callback(null, true)
+			} else {
+				callback(new Error('Not allowed by CORS'))
+			}
+		},
 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
 	}),
 )
+
 app.use(express.json())
 
 // Routes
